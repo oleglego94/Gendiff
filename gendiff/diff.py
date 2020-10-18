@@ -1,4 +1,4 @@
-import json
+from gendiff.load import load_file
 
 
 def encode(value):
@@ -11,8 +11,8 @@ def encode(value):
 
 
 def generate_diff(file_path1, file_path2):
-    file1 = json.load(open(file_path1))
-    file2 = json.load(open(file_path2))
+    file1 = load_file(file_path1)
+    file2 = load_file(file_path2)
     result = ''
     union_file = file1.copy()
     union_file.update(file2)

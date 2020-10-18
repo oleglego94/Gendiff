@@ -3,8 +3,8 @@ from gendiff.diff import generate_diff
 
 
 def test_json_diff():
-    file_path1 = abspath('tests/fixtures/file1.json')
-    file_path2 = abspath('tests/fixtures/file2.json')
+    file_path1 = abspath('tests/fixtures/file1.yaml')
+    file_path2 = abspath('tests/fixtures/file2.yaml')
 
     result = '''{
     host: hexlet.io
