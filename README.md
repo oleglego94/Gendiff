@@ -9,7 +9,7 @@ Gendiff is a CLI-utility defining the difference between two files.
 ## Installation
 "gendiff" requires Python 3.6+ to run.
 ```
-$ pip install -i https://test.pypi.org/simple/ oleglego94-gendiff
+$ pip install -i https://test.pypi.org/simple/ oleglego94-gendiff --extra-index-url https://pypi.org/simple/
 ```
 ## Usage
 ```
@@ -28,4 +28,6 @@ optional arguments:
                         set format of output
 ```
 # gendiff supports JSON files
-[![asciicast](https://asciinema.org/a/3wt6e1JNVpZR0uv9EBaMD0fiF.svg)](https://asciinema.org/a/3wt6e1JNVpZR0uv9EBaMD0fiF)
+[![asciicast](https://asciinema.org/a/204dMYi9n5ghZG8DWIbDqnoFg.svg)](https://asciinema.org/a/204dMYi9n5ghZG8DWIbDqnoFg)
+# gendiff supports YAML files
+[![asciicast](https://asciinema.org/a/tW4NVMdpBdDjULhmNP7yHvzk9.svg)](https://asciinema.org/a/tW4NVMdpBdDjULhmNP7yHvzk9)
