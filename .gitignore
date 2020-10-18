@@ -5,5 +5,4 @@ dist/
 .venv/
 .vscode/
 .coverage
-coverage.xml
 .pytest_cache
