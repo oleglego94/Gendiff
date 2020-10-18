@@ -6,6 +6,7 @@
 
 ![Python CI](https://github.com/oleglego94/python-project-lvl2/workflows/Python%20CI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/maintainability)](https://codeclimate.com/github/oleglego94/python-project-lvl2/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/test_coverage)](https://codeclimate.com/github/oleglego94/python-project-lvl2/test_coverage)
 
 ### Description
 Gendiff(difference generator) - a program that determines the difference between the two data structures.
