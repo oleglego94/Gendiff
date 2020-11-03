@@ -1,4 +1,4 @@
-from gendiff.load import load_file
+from gendiff.loader import load_file
 
 
 def encode(value):

@@ -3,7 +3,7 @@ from gendiff import diff
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Generate diff.')
+    parser = argparse.ArgumentParser(description='Generate diff')
     parser.add_argument('first_file', type=str)
     parser.add_argument('second_file', type=str)
     parser.add_argument(
