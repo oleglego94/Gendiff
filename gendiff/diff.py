@@ -1,29 +1,36 @@
-from gendiff.loader import load_file
+from collections import OrderedDict
+from loader import load_file
 
 
-def encode(value):
-    if value is False:
-        return 'false'
-    elif value is True:
-        return 'true'
-    else:
-        return value
+def build_diff_dict(dict_before, dict_after):
+    diff = {}
 
+    dict_before_keys = set(dict_before.keys())
+    dict_after_keys = set(dict_after.keys())
 
-def generate_diff(file_path1, file_path2):
-    file1 = load_file(file_path1)
-    file2 = load_file(file_path2)
-    result = ''
-    union_file = file1.copy()
-    union_file.update(file2)
-    for k, v in union_file.items():
-        if k not in file2:
-            result += ('  - {}: {}\n'.format(k, encode(v)))
-        elif k not in file1:
-            result += ('  + {}: {}\n'.format(k, encode(v)))
-        elif file1[k] != file2[k]:
-            result += ('  - {}: {}\n'.format(k, encode(file1[k])))
-            result += ('  + {}: {}\n'.format(k, encode(file2[k])))
+    added_keys = dict_after_keys - dict_before_keys
+    for k in added_keys:
+        diff[k] = ('ADDED', dict_after[k])
+
+    removed_keys = dict_before_keys - dict_after_keys
+    for k in removed_keys:
+        diff[k] = ('REMOVED', dict_before[k])
+
+    common_keys = dict_before_keys & dict_after_keys
+    for k in common_keys:
+        old_v = dict_before[k]
+        new_v = dict_after[k]
+        if isinstance(old_v, dict) and isinstance(new_v, dict):
+            diff[k] = ('NESTED', build_diff_dict(old_v, new_v))
+        elif old_v != new_v:
+            diff[k] = ('CHANGED', old_v, new_v)
         else:
-            result += ('    {}: {}\n'.format(k, encode(v)))
-    return ('{{\n{}}}'.format(result))
+            diff[k] = ('UNCHANGED', old_v)
+
+    return diff
+
+
+def generate_diff(file_path_before, file_path_after):
+    before_dict = load_file(file_path_before)
+    after_dict = load_file(file_path_after)
+    return build_diff_dict(before_dict, after_dict)
