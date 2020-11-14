@@ -1,8 +1,8 @@
-def format_dict(diff_dict, lvl=0):
+def format_stylish(diff_dict, lvl=0):
 
     def convert(value):
         if isinstance(value, dict):
-            return format_dict(value, lvl+1)
+            return format_stylish(value, lvl+1)
         elif value is False:
             convert_value = 'false'
         elif value is True:
@@ -23,7 +23,7 @@ def format_dict(diff_dict, lvl=0):
             state, val = None, v
 
         if state == 'NESTED':
-            result += (tab + '    {}: {}\n'.format(k, format_dict(val, lvl+1)))
+            result += (tab + '    {}: {}\n'.format(k, format_stylish(val, lvl+1)))  # noqa: E501
 
         elif state == 'ADDED':
             result += (tab + '  + {}: {}\n'.format(k, convert(val)))
