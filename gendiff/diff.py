@@ -34,5 +34,5 @@ def build_diff_dict(dict_before, dict_after):
 def generate_diff(file_path_before, file_path_after):
     before_dict = load_file(file_path_before)
     after_dict = load_file(file_path_after)
-    diff_dictionary = build_diff_dict(before_dict, after_dict)
-    return format_dict(diff_dictionary)
+    diff_dict = build_diff_dict(before_dict, after_dict)
+    return format_dict(diff_dict)
