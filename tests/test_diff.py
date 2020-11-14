@@ -1,5 +1,6 @@
 from os.path import abspath
 from gendiff.diff import generate_diff
+from gendiff.stylish import format_stylish
 
 
 def test_diff():
@@ -16,11 +17,13 @@ def test_diff():
     result = open(abspath('tests/fixtures/result.txt')).read()
     complex_result = open(abspath('tests/fixtures/complex_result.txt')).read()
 
-    assert generate_diff(json_before, json_after) == result
-    assert generate_diff(yaml_before, yaml_after) == result
+    assert generate_diff(json_before, json_after, format_stylish) == result
+    assert generate_diff(yaml_before, yaml_after, format_stylish) == result
     assert generate_diff(
         complex_json_before,
-        complex_json_after) == complex_result
+        complex_json_after,
+        format_stylish) == complex_result
     assert generate_diff(
         complex_yaml_before,
-        complex_yaml_after) == complex_result
+        complex_yaml_after,
+        format_stylish) == complex_result
