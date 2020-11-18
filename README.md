@@ -14,7 +14,7 @@ $ pip install -i https://test.pypi.org/simple/ oleglego94-gendiff --extra-index-
 ## Usage
 ```
 $ gendiff -h
-usage: gendiff [-h] [-f FORMAT] first_file second_file
+usage: gendiff [-h] [-f {plain,json}] first_file second_file
 
 Generate diff
 
@@ -24,10 +24,12 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -f FORMAT, --format FORMAT
-                        set format of output
+  -f {plain,json}, --format {plain,json}
+                        set format of output (default: stylish format)
 ```
-# gendiff supports JSON files
+# gendiff for JSON files in stylish format
 [![asciicast](https://asciinema.org/a/7dXLOWSRIsanxHujLq9W96o7u.svg)](https://asciinema.org/a/7dXLOWSRIsanxHujLq9W96o7u)
-# gendiff supports YAML files
+# gendiff for YAML files in stylish format
 [![asciicast](https://asciinema.org/a/aXJWgsrs4x26QonyKEGLIFOXl.svg)](https://asciinema.org/a/aXJWgsrs4x26QonyKEGLIFOXl)
+# gendiff for JSON, YAML files in plain format
+[![asciicast](https://asciinema.org/a/N3uIQTU5x1u7xUUlqVfaf04xz.svg)](https://asciinema.org/a/N3uIQTU5x1u7xUUlqVfaf04xz)
