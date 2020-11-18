@@ -1,6 +1,6 @@
 from os.path import abspath
 from gendiff.diff import generate_diff
-from gendiff.stylish import format_stylish
+from gendiff.formatters import stylish, plain
 
 
 def test_diff():
@@ -14,16 +14,25 @@ def test_diff():
     complex_yaml_before = abspath('tests/fixtures/complex_before.yaml')
     complex_yaml_after = abspath('tests/fixtures/complex_after.yaml')
 
-    result = open(abspath('tests/fixtures/result.txt')).read()
-    complex_result = open(abspath('tests/fixtures/complex_result.txt')).read()
+    simple_diff = open(abspath('tests/fixtures/simple_diff.txt')).read()
+    stylish_diff = open(abspath('tests/fixtures/stylish_diff.txt')).read()
+    plain_diff = open(abspath('tests/fixtures/plain_diff.txt')).read()
 
-    assert generate_diff(json_before, json_after, format_stylish) == result
-    assert generate_diff(yaml_before, yaml_after, format_stylish) == result
+    assert generate_diff(json_before, json_after, stylish.format_stylish) == simple_diff  # noqa: E501
+    assert generate_diff(yaml_before, yaml_after, stylish.format_stylish) == simple_diff  # noqa: E501
     assert generate_diff(
         complex_json_before,
         complex_json_after,
-        format_stylish) == complex_result
+        stylish.format_stylish) == stylish_diff
     assert generate_diff(
         complex_yaml_before,
         complex_yaml_after,
-        format_stylish) == complex_result
+        stylish.format_stylish) == stylish_diff
+    assert generate_diff(
+        complex_json_before,
+        complex_json_after,
+        plain.format_plain) == plain_diff
+    assert generate_diff(
+        complex_yaml_before,
+        complex_yaml_after,
+        plain.format_plain) == plain_diff

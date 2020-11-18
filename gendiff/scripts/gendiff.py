@@ -1,6 +1,6 @@
 import argparse
 from gendiff.diff import generate_diff
-from gendiff.stylish import format_stylish
+from gendiff.formatters import json, plain, stylish
 
 
 def main():
@@ -10,10 +10,19 @@ def main():
     parser.add_argument(
         '-f',
         '--format',
-        default=format_stylish,
+        action='store',
+        type=str,
+        choices=['plain', 'json'],
         help='set format of output (default: stylish format)',
     )
     args = parser.parse_args()
+
+    if args.format == 'plain':
+        args.format = plain.format_plain
+    elif args.format == 'json':
+        args.format = json.format_json
+    else:
+        args.format = stylish.format_stylish
 
     print(generate_diff(args.first_file, args.second_file, args.format))
 
