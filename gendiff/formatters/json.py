@@ -1,2 +1,5 @@
+import json
+
+
 def format_json(diff_dict):
-    pass
+    return json.dumps(diff_dict, indent=4)

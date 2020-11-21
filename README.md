@@ -33,3 +33,5 @@ optional arguments:
 [![asciicast](https://asciinema.org/a/aXJWgsrs4x26QonyKEGLIFOXl.svg)](https://asciinema.org/a/aXJWgsrs4x26QonyKEGLIFOXl)
 # gendiff for JSON, YAML files in plain format
 [![asciicast](https://asciinema.org/a/N3uIQTU5x1u7xUUlqVfaf04xz.svg)](https://asciinema.org/a/N3uIQTU5x1u7xUUlqVfaf04xz)
+# gendiff for JSON, YAML files in JSON format
+[![asciicast](https://asciinema.org/a/rwFLn9v3zFyZZVc0l6VnqSIu9.svg)](https://asciinema.org/a/rwFLn9v3zFyZZVc0l6VnqSIu9)
