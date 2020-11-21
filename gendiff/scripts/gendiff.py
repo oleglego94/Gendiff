@@ -10,7 +10,6 @@ def main():
     parser.add_argument(
         '-f',
         '--format',
-        action='store',
         type=str,
         choices=['plain', 'json'],
         help='set format of output (default: stylish format)',

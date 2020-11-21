@@ -28,8 +28,12 @@ optional arguments:
                         set format of output (default: stylish format)
 ```
 # gendiff for JSON files in stylish format
-[![asciicast](https://asciinema.org/a/7dXLOWSRIsanxHujLq9W96o7u.svg)](https://asciinema.org/a/7dXLOWSRIsanxHujLq9W96o7u)
+[![asciicast](https://asciinema.org/a/iAYE4MoFdnAVWocCNeCdO17Zk.svg)](https://asciinema.org/a/iAYE4MoFdnAVWocCNeCdO17Zk)
 # gendiff for YAML files in stylish format
+[![asciicast](https://asciinema.org/a/j31Ji1cUoaiLBFJQqSm0yfjE5.svg)](https://asciinema.org/a/j31Ji1cUoaiLBFJQqSm0yfjE5)
+# gendiff for JSON tree files in stylish format
+[![asciicast](https://asciinema.org/a/7dXLOWSRIsanxHujLq9W96o7u.svg)](https://asciinema.org/a/7dXLOWSRIsanxHujLq9W96o7u)
+# gendiff for YAML tree files in stylish format
 [![asciicast](https://asciinema.org/a/aXJWgsrs4x26QonyKEGLIFOXl.svg)](https://asciinema.org/a/aXJWgsrs4x26QonyKEGLIFOXl)
 # gendiff for JSON, YAML files in plain format
 [![asciicast](https://asciinema.org/a/N3uIQTU5x1u7xUUlqVfaf04xz.svg)](https://asciinema.org/a/N3uIQTU5x1u7xUUlqVfaf04xz)
