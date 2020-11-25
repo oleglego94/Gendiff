@@ -1,38 +1,45 @@
-def convert(value):
+from gendiff.formatters.converting import convert
+
+
+def is_dict_or_str(value):
     if isinstance(value, dict):
-        convert_value = '[complex value]'
+        return '[complex value]'
     elif isinstance(value, str):
-        convert_value = "\'{}\'".format(value)
-    elif value is False:
-        convert_value = 'false'
-    elif value is True:
-        convert_value = 'true'
-    elif value is None:
-        convert_value = 'null'
-    else:
-        convert_value = value
-    return convert_value
+        return "\'{}\'".format(value)
+    return convert(value)
 
 
-def format_plain(diff_dict, key=''):
+def is_list(value):
+    if isinstance(value, list):
+        return value[:2]
+    return None, value
+
+
+def format_plain(diff_dict, lvl=''):
     result = ''
-    for k, v in diff_dict.items():
-        if isinstance(v, tuple):
-            state, val = v[:2]
-        else:
-            state, val = None, v
+
+    for key, value in diff_dict.items():
+        state, data = is_list(value)
+        content = is_dict_or_str(data)
 
         if state == 'NESTED':
-            result += format_plain(val, key+'{}.'.format(k))
+            result += format_plain(data, lvl+'{}.'.format(key))
 
         elif state == 'ADDED':
-            result += "Property '{}' was added with value: {}\n".format(key+k, convert(val))  # noqa: E501
+            result += "Property '{}' was added with value: {}\n".format(
+                lvl+key,
+                content)
 
         elif state == 'REMOVED':
-            result += "Property '{}' was removed\n".format(key+k)
+            result += "Property '{}' was removed\n".format(lvl+key)
 
         elif state == 'CHANGED':
-            result += "Property '{}' was updated. From {} to {}\n".format(key+k, convert(val), convert(v[2]))  # noqa: E501
+            old_content = content
+            new_content = is_dict_or_str(value[2])
+            result += "Property '{}' was updated. From {} to {}\n".format(
+                lvl+key,
+                old_content,
+                new_content)
 
         else:
             continue
