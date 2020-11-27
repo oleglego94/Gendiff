@@ -19,7 +19,7 @@ def render(diff_dict, lvl=''):
     result = ''
 
     for key, value in diff_dict.items():
-        state, data = parse(value) 
+        state, data = parse(value)
         content = create(data)
 
         if state == 'NESTED':
