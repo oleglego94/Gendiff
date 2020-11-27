@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "oleglego94-Gendiff"
-version = "0.6.0"
+version = "0.6.1"
 description = "Gendiff is a CLI-utility defining the difference between two files."
 authors = ["Oleg Gahverdiev <olegik94b@gmail.com>"]
 repository = "https://github.com/oleglego94/python-project-lvl2"

@@ -5,8 +5,8 @@ from gendiff.formatters import json, plain, stylish
 
 def main():
     parser = argparse.ArgumentParser(description='Generate diff')
-    parser.add_argument('first_file', type=str)
-    parser.add_argument('second_file', type=str)
+    parser.add_argument('<first_file>', type=str)
+    parser.add_argument('<second_file>', type=str)
     parser.add_argument(
         '-f',
         '--format',
@@ -17,11 +17,11 @@ def main():
     args = parser.parse_args()
 
     if args.format == 'plain':
-        args.format = plain.format_plain
+        args.format = plain.render
     elif args.format == 'json':
-        args.format = json.format_json
+        args.format = json.render
     else:
-        args.format = stylish.format_stylish
+        args.format = stylish.render
 
     print(generate_diff(args.first_file, args.second_file, args.format))
 

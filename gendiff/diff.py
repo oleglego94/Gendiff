@@ -1,8 +1,8 @@
 from collections import OrderedDict
-from gendiff.loading import load_file
+from gendiff.loading import load
 
 
-def build_diff_dict(old_dict, new_dict):
+def build(old_dict, new_dict):
     diff_dict = {}
 
     old_keys = set(old_dict.keys())
@@ -20,8 +20,10 @@ def build_diff_dict(old_dict, new_dict):
     for key in common_keys:
         old_value = old_dict[key]
         new_value = new_dict[key]
-        if isinstance(old_value, dict) and isinstance(new_value, dict):
-            diff_dict[key] = ['NESTED', build_diff_dict(old_value, new_value)]
+        children = isinstance(old_value, dict) and isinstance(new_value, dict)
+
+        if children:
+            diff_dict[key] = ['NESTED', build(old_value, new_value)]
         elif old_value != new_value:
             diff_dict[key] = ['CHANGED', old_value, new_value]
         else:
@@ -31,7 +33,7 @@ def build_diff_dict(old_dict, new_dict):
 
 
 def generate_diff(file_path_before, file_path_after, formatter):
-    old_file = load_file(file_path_before)
-    new_file = load_file(file_path_after)
-    diff = build_diff_dict(old_file, new_file)
+    old_file = load(file_path_before)
+    new_file = load(file_path_after)
+    diff = build(old_file, new_file)
     return formatter(diff)
