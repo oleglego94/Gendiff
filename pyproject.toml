@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "oleglego94-Gendiff"
+name = "hexlet-code"
 version = "0.6.1"
 description = "Gendiff is a CLI-utility defining the difference between two files."
 authors = ["Oleg Gahverdiev <olegik94b@gmail.com>"]
