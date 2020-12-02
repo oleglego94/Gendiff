@@ -1,5 +1,5 @@
 def parse(item):
-    if isinstance(item, list):
+    if isinstance(item, tuple):
         return item[:2]
     return None, item
 

@@ -10,11 +10,11 @@ def build(old_dict, new_dict):
 
     added_keys = new_keys - old_keys
     for key in added_keys:
-        diff_dict[key] = ['ADDED', new_dict[key]]
+        diff_dict[key] = ('ADDED', new_dict[key])
 
     removed_keys = old_keys - new_keys
     for key in removed_keys:
-        diff_dict[key] = ['REMOVED', old_dict[key]]
+        diff_dict[key] = ('REMOVED', old_dict[key])
 
     common_keys = old_keys & new_keys
     for key in common_keys:
@@ -23,11 +23,11 @@ def build(old_dict, new_dict):
         children = isinstance(old_value, dict) and isinstance(new_value, dict)
 
         if children:
-            diff_dict[key] = ['NESTED', build(old_value, new_value)]
+            diff_dict[key] = ('NESTED', build(old_value, new_value))
         elif old_value != new_value:
-            diff_dict[key] = ['CHANGED', old_value, new_value]
+            diff_dict[key] = ('CHANGED', old_value, new_value)
         else:
-            diff_dict[key] = ['UNCHANGED', old_value]
+            diff_dict[key] = ('UNCHANGED', old_value)
 
     return OrderedDict(sorted(diff_dict.items()))
 

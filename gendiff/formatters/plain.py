@@ -1,19 +1,4 @@
-def parse(item):
-    if isinstance(item, list):
-        return item[:2]
-    return None, item
-
-
-def convert(value):
-    if value is False:
-        convert_value = 'false'
-    elif value is True:
-        convert_value = 'true'
-    elif value is None:
-        convert_value = 'null'
-    else:
-        convert_value = value
-    return convert_value
+from gendiff.formatters.stylish import parse, convert
 
 
 def create(input):
@@ -35,18 +20,18 @@ def render(diff_dict, lvl=''):
             result.append(render(data, lvl+'{}.'.format(key)))
 
         elif state == 'ADDED':
-            result.append("Property '{}' was added with value: {}\n".format(
+            result.append("Property '{}' was added with value: {}".format(
                 lvl+key,
                 content)
             )
 
         elif state == 'REMOVED':
-            result.append("Property '{}' was removed\n".format(lvl+key))
+            result.append("Property '{}' was removed".format(lvl+key))
 
         elif state == 'CHANGED':
             old_content = content
             new_content = create(value[2])
-            result.append("Property '{}' was updated. From {} to {}\n".format(
+            result.append("Property '{}' was updated. From {} to {}".format(
                 lvl+key,
                 old_content,
                 new_content)
@@ -55,4 +40,4 @@ def render(diff_dict, lvl=''):
         else:
             continue
 
-    return (''.join(result))
+    return ('\n'.join(result))
