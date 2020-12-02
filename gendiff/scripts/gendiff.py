@@ -1,9 +1,9 @@
 from gendiff import cli
-from gendiff.generate_diff import generate_diff
+from gendiff.generate_diff import generate
 
 
 def main():
-    print(generate_diff(
+    print(generate(
         cli.args.first_file,
         cli.args.second_file,
         cli.formatter)

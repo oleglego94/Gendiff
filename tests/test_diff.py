@@ -1,7 +1,7 @@
 import pytest
 from json import loads
 from os.path import abspath
-from gendiff.generate_diff import generate_diff
+from gendiff.generate_diff import generate
 from gendiff.formatters import stylish, plain, json
 from gendiff.loading import load
 
@@ -35,7 +35,7 @@ json_diff = load('tests/fixtures/json_diff.json')
     ]
 )
 def test_generate_diff(before, after, render, expected):
-    assert generate_diff(before, after, render) == expected
+    assert generate(before, after, render) == expected
 
 
 @pytest.mark.parametrize(
@@ -45,4 +45,4 @@ def test_generate_diff(before, after, render, expected):
     ]
 )
 def test_generate_json_diff(before, after, render, expected):
-    assert loads(generate_diff(before, after, render)) == expected
+    assert loads(generate(before, after, render)) == expected

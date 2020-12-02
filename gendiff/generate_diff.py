@@ -32,7 +32,7 @@ def build(old_dict, new_dict):
     return OrderedDict(sorted(diff_dict.items()))
 
 
-def generate_diff(file_path_before, file_path_after, formatter):
+def generate(file_path_before, file_path_after, formatter):
     old_file = load(file_path_before)
     new_file = load(file_path_after)
     diff = build(old_file, new_file)
