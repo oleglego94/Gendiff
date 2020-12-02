@@ -1,10 +1,19 @@
-from gendiff.formatters.converting import convert
-
-
 def parse(item):
     if isinstance(item, list):
         return item[:2]
     return None, item
+
+
+def convert(value):
+    if value is False:
+        convert_value = 'false'
+    elif value is True:
+        convert_value = 'true'
+    elif value is None:
+        convert_value = 'null'
+    else:
+        convert_value = value
+    return convert_value
 
 
 def create(input, lvl):
