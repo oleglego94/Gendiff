@@ -1,4 +1,4 @@
-from gendiff.converting import convert
+from gendiff.formatters.converting import convert
 
 
 def parse(item):
