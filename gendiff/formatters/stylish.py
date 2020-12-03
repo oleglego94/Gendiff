@@ -23,7 +23,7 @@ def create(input, lvl):
 
 
 def render(diff_dict, lvl=0):
-    result = '{\n'
+    result = []
     tab = '    ' * lvl
 
     for key, value in diff_dict.items():
@@ -31,23 +31,24 @@ def render(diff_dict, lvl=0):
         content = create(data, lvl)
 
         if state == 'NESTED':
-            result += (tab + '    {}: {}\n'.format(
+            result.append(tab + '    {}: {}'.format(
                 key,
-                render(data, lvl+1)))
+                render(data, lvl+1)
+            ))
 
         elif state == 'ADDED':
-            result += (tab + '  + {}: {}\n'.format(key, content))
+            result.append(tab + '  + {}: {}'.format(key, content))
 
         elif state == 'REMOVED':
-            result += (tab + '  - {}: {}\n'.format(key, content))
+            result.append(tab + '  - {}: {}'.format(key, content))
 
         elif state == 'CHANGED':
             old_content = content
             new_content = create(value[2], lvl)
-            result += (tab + '  - {}: {}\n'.format(key, old_content))
-            result += (tab + '  + {}: {}\n'.format(key, new_content))
+            result.append(tab + '  - {}: {}'.format(key, old_content))
+            result.append(tab + '  + {}: {}'.format(key, new_content))
 
         else:
-            result += (tab + '    {}: {}\n'.format(key, content))
+            result.append(tab + '    {}: {}'.format(key, content))
 
-    return ('{}'.format(result) + tab + '}')
+    return '{\n' + '\n'.join(result) + '\n{}}}'.format(tab)

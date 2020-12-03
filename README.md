@@ -1,9 +1,10 @@
 # python-project-lvl2
-![Python CI](https://github.com/oleglego94/python-project-lvl2/workflows/Python%20CI/badge.svg)
+[![Python CI](https://github.com/oleglego94/python-project-lvl2/workflows/Python%20CI/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/maintainability)](https://codeclimate.com/github/oleglego94/python-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/test_coverage)](https://codeclimate.com/github/oleglego94/python-project-lvl2/test_coverage)
 ### Hexlet tests and linter status:
-![Actions Status](/workflows/hexlet-check/badge.svg)
+[![hexlet-check](https://github.com/oleglego94/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions)
+
 ## Description
 Gendiff is a CLI-utility defining the difference between two files.
 ## Installation
