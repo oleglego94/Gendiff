@@ -1,9 +1,9 @@
 # python-project-lvl2
-[![Python CI](https://github.com/oleglego94/python-project-lvl2/workflows/Python%20CI/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions)
+[![Python CI](https://github.com/oleglego94/python-project-lvl2/workflows/Python%20CI/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions?query=workflow%3A%22Python+CI%22)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/maintainability)](https://codeclimate.com/github/oleglego94/python-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/test_coverage)](https://codeclimate.com/github/oleglego94/python-project-lvl2/test_coverage)
 ### Hexlet tests and linter status:
-[![hexlet-check](https://github.com/oleglego94/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions)
+[![hexlet-check](https://github.com/oleglego94/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions?query=workflow%3Ahexlet-check)
 
 ## Description
 Gendiff is a CLI-utility defining the difference between two files.
@@ -15,7 +15,7 @@ $ pip install -i https://test.pypi.org/simple/ oleglego94-gendiff --extra-index-
 ## Usage
 ```
 $ gendiff -h
-usage: gendiff [-h] [-f {plain,json}] first_file second_file
+usage: gendiff [-h] [-f {stylish,plain,json}] first_file second_file
 
 Generate diff
 
@@ -25,8 +25,8 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -f {plain,json}, --format {plain,json}
-                        set format of output (default: stylish format)
+  -f {stylish,plain,json}, --format {stylish,plain,json}
+                        set format of output (default: stylish)
 ```
 # gendiff for JSON files in stylish format
 [![asciicast](https://asciinema.org/a/iAYE4MoFdnAVWocCNeCdO17Zk.svg)](https://asciinema.org/a/iAYE4MoFdnAVWocCNeCdO17Zk)

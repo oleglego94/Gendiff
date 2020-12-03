@@ -1,12 +1,14 @@
-from gendiff import cli
+from gendiff.cli import args, RENDERS
 from gendiff.diff import generate_diff
 
 
 def main():
-    print(generate_diff(
-        cli.args.first_file,
-        cli.args.second_file,
-        cli.renders[cli.args.format])
+    print(
+        generate_diff(
+            args.first_file,
+            args.second_file,
+            RENDERS[args.format]
+        )
     )
 
 

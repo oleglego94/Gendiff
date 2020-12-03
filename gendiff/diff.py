@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from gendiff.loading import load
+from gendiff.formatters import stylish
 
 
 def build(old_dict, new_dict):
@@ -32,7 +33,7 @@ def build(old_dict, new_dict):
     return OrderedDict(sorted(diff_dict.items()))
 
 
-def generate_diff(file_path_before, file_path_after, formatter):
+def generate_diff(file_path_before, file_path_after, formatter=stylish.render):
     old_file = load(file_path_before)
     new_file = load(file_path_after)
     diff = build(old_file, new_file)
