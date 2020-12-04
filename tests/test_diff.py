@@ -2,7 +2,7 @@ import pytest
 from json import loads
 from os.path import abspath
 from gendiff.diff import generate_diff
-from gendiff.formatters import stylish, plain, json
+from gendiff.cli import RENDERS
 from gendiff.loading import load
 
 
@@ -26,12 +26,12 @@ json_diff = load('tests/fixtures/json_diff.json')
 
 @pytest.mark.parametrize(
     "before, after, render, expected", [
-        (json_before, json_after, stylish.render, simple_diff),
-        (yaml_before, yaml_after, stylish.render, simple_diff),
-        (complex_json_before, complex_json_after, stylish.render, stylish_diff),  # noqa: E501
-        (complex_yaml_before, complex_yaml_after, stylish.render, stylish_diff),  # noqa: E501
-        (complex_json_before, complex_json_after, plain.render, plain_diff),
-        (complex_yaml_before, complex_yaml_after, plain.render, plain_diff),
+        (json_before, json_after, RENDERS['stylish'], simple_diff),
+        (yaml_before, yaml_after, RENDERS['stylish'], simple_diff),
+        (complex_json_before, complex_json_after, RENDERS['stylish'], stylish_diff),  # noqa: E501
+        (complex_yaml_before, complex_yaml_after, RENDERS['stylish'], stylish_diff),  # noqa: E501
+        (complex_json_before, complex_json_after, RENDERS['plain'], plain_diff),  # noqa: E501
+        (complex_yaml_before, complex_yaml_after, RENDERS['plain'], plain_diff),  # noqa: E501
     ]
 )
 def test_generate_diff(before, after, render, expected):
@@ -40,8 +40,8 @@ def test_generate_diff(before, after, render, expected):
 
 @pytest.mark.parametrize(
     "before, after, render, expected", [
-        (complex_json_before, complex_json_after, json.render, json_diff),
-        (complex_yaml_before, complex_yaml_after, json.render, json_diff),
+        (complex_json_before, complex_json_after, RENDERS['json'], json_diff),
+        (complex_yaml_before, complex_yaml_after, RENDERS['json'], json_diff),
     ]
 )
 def test_generate_json_diff(before, after, render, expected):
