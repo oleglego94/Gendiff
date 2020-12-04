@@ -1,6 +1,6 @@
 from collections import OrderedDict
 from gendiff.loading import load
-from gendiff.formatters.renderers import RENDERERS
+from gendiff.formatters import RENDERERS
 
 
 def build(old_dict, new_dict):

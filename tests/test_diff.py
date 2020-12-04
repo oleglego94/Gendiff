@@ -1,8 +1,7 @@
 import pytest
 from json import loads
 from os.path import abspath
-from gendiff.diff import generate_diff
-from gendiff.loading import load
+from gendiff import generate_diff, load
 
 
 json_before = abspath('tests/fixtures/before.json')
