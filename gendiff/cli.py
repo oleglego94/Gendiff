@@ -1,12 +1,4 @@
 import argparse
-from gendiff.formatters import json, plain, stylish
-
-RENDERS = {
-    'json': json.render,
-    'plain': plain.render,
-    'stylish': stylish.render,
-}
-DEFAULT_RENDER = 'stylish'
 
 
 def get_parser():
@@ -18,7 +10,7 @@ def get_parser():
         '--format',
         type=str,
         choices=['plain', 'json', 'stylish'],
-        default=DEFAULT_RENDER,
+        default='stylish',
         help='set format of output (default: stylish)',
     )
     return parser.parse_args()

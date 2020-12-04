@@ -1,4 +1,4 @@
-from gendiff.cli import get_parser, RENDERS
+from gendiff.cli import get_parser
 from gendiff.diff import generate_diff
 
 
@@ -8,7 +8,7 @@ def main():
         generate_diff(
             args.first_file,
             args.second_file,
-            RENDERS[args.format]
+            args.format,
         )
     )
 

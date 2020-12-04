@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from gendiff.loading import load
+from gendiff.formatters.renderers import RENDERERS
 
 
 def build(old_dict, new_dict):
@@ -36,4 +37,5 @@ def generate_diff(file_path_before, file_path_after, format_name='stylish'):
     old_file = load(file_path_before)
     new_file = load(file_path_after)
     diff = build(old_file, new_file)
-    return format_name(diff)
+    formatter = RENDERERS.get(format_name)
+    return formatter(diff)
