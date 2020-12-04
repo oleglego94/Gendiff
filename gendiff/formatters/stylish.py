@@ -18,7 +18,7 @@ def convert(value):
 
 def create(input, lvl):
     if isinstance(input, dict):
-        return render(input, lvl+1)
+        return render(input, lvl + 1)
     return convert(input)
 
 
@@ -33,7 +33,7 @@ def render(diff_dict, lvl=0):
         if state == 'NESTED':
             result.append(tab + '    {}: {}'.format(
                 key,
-                render(data, lvl+1)
+                render(data, lvl + 1)
             ))
 
         elif state == 'ADDED':

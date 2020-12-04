@@ -17,22 +17,22 @@ def render(diff_dict, lvl=''):
         content = create(data)
 
         if state == 'NESTED':
-            result.append(render(data, lvl+'{}.'.format(key)))
+            result.append(render(data, lvl + '{}.'.format(key)))
 
         elif state == 'ADDED':
             result.append("Property '{}' was added with value: {}".format(
-                lvl+key,
+                lvl + key,
                 content)
             )
 
         elif state == 'REMOVED':
-            result.append("Property '{}' was removed".format(lvl+key))
+            result.append("Property '{}' was removed".format(lvl + key))
 
         elif state == 'CHANGED':
             old_content = content
             new_content = create(value[2])
             result.append("Property '{}' was updated. From {} to {}".format(
-                lvl+key,
+                lvl + key,
                 old_content,
                 new_content)
             )
