@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "0.6.1"
+version = "0.6.2"
 description = "Gendiff is a CLI-utility defining the difference between two files."
 authors = ["Oleg Gahverdiev <olegik94b@gmail.com>"]
 repository = "https://github.com/oleglego94/python-project-lvl2"
