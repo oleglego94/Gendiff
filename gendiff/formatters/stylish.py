@@ -1,4 +1,4 @@
-def parse(item):
+def deconstruct_value(item):
     if isinstance(item, tuple):
         return item[:2]
     return None, item
@@ -16,7 +16,7 @@ def convert(value):
     return convert_value
 
 
-def create(input, lvl):
+def create_content(input, lvl):
     if isinstance(input, dict):
         return render(input, lvl + 1)
     return convert(input)
@@ -27,8 +27,8 @@ def render(diff_dict, lvl=0):
     tab = '    ' * lvl
 
     for key, value in diff_dict.items():
-        state, data = parse(value)
-        content = create(data, lvl)
+        state, data = deconstruct_value(value)
+        content = create_content(data, lvl)
 
         if state == 'NESTED':
             result.append(tab + '    {}: {}'.format(
@@ -44,7 +44,7 @@ def render(diff_dict, lvl=0):
 
         elif state == 'CHANGED':
             old_content = content
-            new_content = create(value[2], lvl)
+            new_content = create_content(value[2], lvl)
             result.append(tab + '  - {}: {}'.format(key, old_content))
             result.append(tab + '  + {}: {}'.format(key, new_content))
 
