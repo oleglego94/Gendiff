@@ -6,18 +6,18 @@ from gendiff.formatters import RENDERERS
 def build(old_dict, new_dict):
     diff_dict = {}
 
-    old_keys = set(old_dict.keys())
-    new_keys = set(new_dict.keys())
+    old_keys = set(old_dict)
+    new_keys = set(new_dict)
 
-    added_keys = new_keys - old_keys
+    added_keys = new_keys.difference(old_keys)
     for key in added_keys:
         diff_dict[key] = ('ADDED', new_dict[key])
 
-    removed_keys = old_keys - new_keys
+    removed_keys = old_keys.difference(new_keys)
     for key in removed_keys:
         diff_dict[key] = ('REMOVED', old_dict[key])
 
-    common_keys = old_keys & new_keys
+    common_keys = old_keys.intersection(new_keys)
     for key in common_keys:
         old_value = old_dict[key]
         new_value = new_dict[key]
