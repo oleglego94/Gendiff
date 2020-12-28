@@ -1,4 +1,4 @@
-# python-project-lvl2
+# Gendiff
 [![Python CI](https://github.com/oleglego94/python-project-lvl2/workflows/Python%20CI/badge.svg)](https://github.com/oleglego94/python-project-lvl2/actions?query=workflow%3A%22Python+CI%22)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/maintainability)](https://codeclimate.com/github/oleglego94/python-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ee4b89fc17de5b826ef0/test_coverage)](https://codeclimate.com/github/oleglego94/python-project-lvl2/test_coverage)
